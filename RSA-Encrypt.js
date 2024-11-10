@@ -1,0 +1,120 @@
+const crypto = require("crypto");
+
+//sender alice recipient bob
+
+
+const recipientPublicKeyPem = `-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyd+47GXJWHgRISCF7frO
+ec+G2SyTx0jXkCdqoAjA7pZcjFS0H5dkFUZHoKSv/O8E/6UnZZWs0GM9NUrnv7dm
+yK1Y5kwuWBNUKlmhQkEldGb5BWRk5fd3vVrsV5Gwao2ehWhT0dUum393IHJMBWe3
+4hRoXgF1PVnaG87A8+pLPIvfvSQZKXKTRlKACaPscWpWOe6iDxWBuaD+dxM0r7Uq
+XHMhJn5HdDSufplBW+8L7OCCmAUkpRtaeSAQpl9bG6l6amP1+q9SylAgl/2irby8
+QJHotHtXcFYvEB7CNRxWqD5flKlvSRNoRw+4tiEnwIX+hvMEkAf4Gw0d8YeYJk0W
+bQIDAQAB
+-----END PUBLIC KEY-----`;
+const recipientPublicKey = crypto.createPublicKey(recipientPublicKeyPem);
+
+const recipientPrivateKeyPem = `-----BEGIN PRIVATE KEY-----
+MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDJ37jsZclYeBEh
+IIXt+s55z4bZLJPHSNeQJ2qgCMDullyMVLQfl2QVRkegpK/87wT/pSdllazQYz01
+Sue/t2bIrVjmTC5YE1QqWaFCQSV0ZvkFZGTl93e9WuxXkbBqjZ6FaFPR1S6bf3cg
+ckwFZ7fiFGheAXU9WdobzsDz6ks8i9+9JBkpcpNGUoAJo+xxalY57qIPFYG5oP53
+EzSvtSpccyEmfkd0NK5+mUFb7wvs4IKYBSSlG1p5IBCmX1sbqXpqY/X6r1LKUCCX
+/aKtvLxAkei0e1dwVi8QHsI1HFaoPl+UqW9JE2hHD7i2ISfAhf6G8wSQB/gbDR3x
+h5gmTRZtAgMBAAECggEAA+/5ZSD6G5/h46XE/vaGmvEdhfRc4ITu8WiXZ44sJysn
+HHSVe81B3jlb8cnshdAqporT2SMhdwIMglLW8NIUruLUqk8/kyezW00avFZVcu8E
+OeLypdqdCwQwOmgEyxs+hYcapWvVSCKlEeywx2U1vLLds0GvhfYP7z1p3YgLFh/y
+aCivnvgzdvWI3qmRbXEG2CMVgnMt859F5KHPZQWM6xNBJcizJvzERcQMdXgTB51C
+LIYH3eoX4ztjI3KT6j5Pvkfi2Xg7aKqtEP+7vzNK+VG0nUU5GIDMGukxWbOMOOKi
+ilzUaZl19PO09+E07XVg2BeGcLwY4Y8mSB2xTS6N+QKBgQDwf67jVO9UKdlBgdQW
+clyXt+xk47klj8qAjebWn3H+AXn0Gb6Sg4yTBeetdCkppgqgzAY/VxHqWkoIF8LM
+wtldoPmH+6XCpdor+4u6fiMtd3r1qyQKFOEfMsdGnKy/sYtr6OJ67qyZiOR4Mi2X
+8CAux/C6rdOz9sQQ8YEzz+YudQKBgQDW4rcYKJAtZ60zE1Ck4JI310oobyppUjK3
+AgRB2805WRYSJ8Qs93txu571Fa3Z7XSkNMxMaCFpC7R2o/9eXfmFj8LTEDHK18n5
+SFHqAG1pnL49yyN1RD83eiWDIH4GVE46nlWx04rlSocxk+Ng0RZkdJVVTBdnTvzU
+EbRL1EC5GQKBgCFlydad++JXMWlsaxR26y7Shsx350U1E60Ih670U3Mvp0zjqlhU
+VlgwcLzgrbqv6TftPUzcfYtq4G8BRbcDtAXRjfV5V8qRF5wWAZBzZdUxi2zESGvx
+/FVFyvCeX0r7j937aEAkFun3XarnZPd9jCqS73YtH4IVWaL0trmIPHHlAoGAN7RL
+3HJfdbXDm1Lte+BPZzRjH/o5V1YcmX5nVh9BoxUp+IjgfPumv4Pwn/3/tFeu/gZF
+06TGzHFhVcQLpg3cajgrPAWdssSfsgSCX5O+yTr9wg0P4w1PCfWbFdPtd3yRTvbO
+pit9fRUF2N9KeUWadW4XbCYuhvRd7Ceuwl2CbbkCgYEAws0kEKqBJODrJaKlM0Am
+HrqQ2eDdZUKL8NGWuxrr5c7LcGQSBJymXvGpyaTMmDv3gu2pbVRUind+V4zOOavu
+/AGLrEF9EV2Kfki/EWeyttLw1nur1YRn0/apOYgYiKeYiYrPUOdHgjAYgaA9VauQ
+a/6lP5QPoWC9Z3hhBP/DJuo=
+-----END PRIVATE KEY-----`;
+const recipientPrivateKey = crypto.createPrivateKey(recipientPrivateKeyPem);
+
+const senderPrivateKeyPem = `-----BEGIN PRIVATE KEY-----
+MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCiS/XpRCstXmVP
+wSdsx61gzwNJc5hth/a1/UOwFhSmccvH5kQXDulK+ghuXIw773EfSvFEdeibkrzm
++W0eXzA78/xU1SjHy5r0MrSBlDwz9WSgHy74ucw8wDQvgGJRATl3gO/eZUR+dubI
+vK/fuJgEhXyO8Sf4uh4Gdf802j/OdwCKXDi4CrmY5rK5km0h0J3IJw02+tVmwmkx
+Di6C4UzLBc5VCKEafAcIikqyWVof/a5LDPdmXqSd1QxY4fWpK5ORFwJjqzp2wewn
+Y2yNHJmbyS0xsuB4q2dJVcBAZXFlHyhuK49pgdpqFXRXOV5Gc1vZUsFboW+heLGt
+u3u5T+mzAgMBAAECggEAFvOPDzHouT3ELgcuwB9s0Wf1GwoR4Et+BDaQv/IfcXpe
+SyKxNmGRdFzvnEvSORefc8FxZTEXeAjEVhWn7MehVpkmcgjC/543h5k0Fa8U5HQr
+isleJyZ/T4gO2TjaroHx0oiVY2oGyaue73xfks/UD6+g8cYA1Rfc7yT4tky3AUdx
+QmCEYGfj2QpfefIs4evWr0Kup+DVeH0cELTUAhUC4urznyOmvDG6mpVBGmefMWTA
+3C0qttrxvHahhl8f6qbojJN6j2lhgznpFtb1IjHyJf4Jp0aWIoDIX47k6RzEawCT
++M0SdTVoy3qHO0Utm5PgZby3UnnlfrSN+A2eDY1ZoQKBgQDVN5WzSc90bfBYzQt9
+mBjXAxlThwTc1xWaiA8KMd6xFG3T7Ejs2pD6NXyPsItfNyrcAHeI2njI+ufkeHip
+aQ82/9jVSY3BDHwlkPu57lF8VymstL/d8Kkoo43kiHgXruZV/K8Kgr/faLwQY/ft
+zFAFyB6k3Sz7RZEmQsLTEVEgTwKBgQDC3Lm9M44hAzxi3Vg7VHFhCROHO/Z8cm9c
+XZ6OTeNsiXbC/0DP/IICbhJhMKGhYun2LJXnh6dOOoFgFk+2RQE0JKH4bhZgpiw+
+jnLblFKQEQUpDlgtexySY0mO0Z/bNbJ/UYbQogm9/dUP0cQ7iFmWGwGW038sMaQ9
+LP/IR1XDXQKBgFnTcxP3cpjggDNJHyAoZb6fpZnU9i17x7Q0wfFPlTwRGTwA/bAb
+XJysz+9RN0ZD3aCV6cYUFHLHkc5lGqB0jF5lZxpkRH4iHmNNM1/fkSDLL9l8xKBh
+9UITtYGkJMQFgTCUpcHN17vtSd214Auk2cm1x4M5UuwBIOd3lNCLKRxtAoGBAJKv
+gYpxos4rF2v834xZ9rdrE647b0MjCb1oJBFPhKGRoTsM1wc6N8wIfAF5kFJimWhd
+C8MslL8Iv5dLdFnq/Ar6gIr4pBPBQ5Ebvk6ZCsW0akQLrkkeYdW4tAi0uDdV5rZ8
+8pVfRSImUBsGd0exTm72iW22bAcin1YF584mFONpAoGAOw4jhKqdSdDX27bv5OpD
+PiLszCGWnbdQHKTDSM5HXZ+ajaHTxkc6s+Q4frYi+n/ryMz7BDyKcSmzJkxHz/kU
+91nCFItEKXYDTuhE+F5E1bsLQg0sKy86rhzmVZmu8JrFqyt9Lg1yaKKFZz2gbzy8
+sjApLTWBF2wukg0H8wjsFqg=
+-----END PRIVATE KEY-----`;
+const senderPrivateKey = crypto.createPrivateKey(senderPrivateKeyPem);
+
+const senderPublicKeyPem = `-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAokv16UQrLV5lT8EnbMet
+YM8DSXOYbYf2tf1DsBYUpnHLx+ZEFw7pSvoIblyMO+9xH0rxRHXom5K85vltHl8w
+O/P8VNUox8ua9DK0gZQ8M/VkoB8u+LnMPMA0L4BiUQE5d4Dv3mVEfnbmyLyv37iY
+BIV8jvEn+LoeBnX/NNo/zncAilw4uAq5mOayuZJtIdCdyCcNNvrVZsJpMQ4uguFM
+ywXOVQihGnwHCIpKsllaH/2uSwz3Zl6kndUMWOH1qSuTkRcCY6s6dsHsJ2NsjRyZ
+m8ktMbLgeKtnSVXAQGVxZR8obiuPaYHaahV0VzleRnNb2VLBW6FvoXixrbt7uU/p
+swIDAQAB
+-----END PUBLIC KEY-----`;
+const senderPublicKey = crypto.createPublicKey(senderPublicKeyPem);
+
+// message that want to be encrypted
+const message = "I want some apples";
+const alicemessage = "alice message";
+console.log("Plaintext:", message);
+
+// SENDER generate CIPHERTEXT
+const dataencrypt = Buffer.from(message);
+const ciphertext = crypto.publicEncrypt(recipientPublicKey, dataencrypt);
+console.log("Ciphertext:", ciphertext.toString("hex"));
+
+const aliceciphertesthex = ciphertext.toString("hex");
+const ciphertextHex = "510cf4e276a5d824ec830fd8729808cf3200db4b26c6590f4e2d0f5694fde215f1a429346aea2c00866fc752b0d62a9387e1f36a1b0fdfd2be164c7bc178ac9bc3b6f488fdafdbb3ae871992257897ab3a3394c2e9384a32b0fa7eebfa51670f922bc21eabb966bee58e586779d8f8af2a387d199e02ea23483a4d3b29b4537fb112ec1c6ae34dd0fa5f0afbf15c3f0fdf96eef0777ee3bd6dd5cb377740185fe90e2f00b5646b92060d4622179b26b2a2045b448971f37507ec5d3aabc1747d6b5aec94a8f9456c050fd62df90a2707727c787368acf4f8dc02b18c83b5d51d568f3334f8f278218aa2b39d98d7877dadbd8e12f9149c9304704e9be5bebf1f";
+const ciphertextdecrypt = Buffer.from(aliceciphertesthex, "hex");
+
+// RECIPIENT recovers PLAINTEXT
+const recoveredPlaintext = crypto.privateDecrypt(recipientPrivateKey, ciphertextdecrypt);
+console.log("Recovered Plaintext:", recoveredPlaintext.toString("utf8"));
+
+
+console.log("Message:", message);
+
+const datasign = Buffer.from(message);
+const signaturesign = crypto.sign("sha256", datasign, senderPrivateKey);
+console.log("Signature:", signaturesign.toString("hex"));
+
+const signatureHex = signaturesign.toString("hex");
+const signatureverify = Buffer.from(signatureHex, "hex");
+
+const dataverify = Buffer.from(message);
+
+// RECIPIENT verifies SIGNATURE
+const isValid = crypto.verify("sha256", dataverify, senderPublicKey, signatureverify);
+console.log("RSA signature verified:", isValid);
